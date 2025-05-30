@@ -55,7 +55,7 @@ PERCENTAGE = 50 #percentage of clients participation in training
 
 TRAINING_TYPE = 'Decentralized'
 SAVE = False
-DATASET = "nabiot"
+DATASET = "nbaiot"
 parser = argparse.ArgumentParser()
 parser.add_argument('--training_type', type=str)
 parser.add_argument('--epochs', type=int)
@@ -124,7 +124,7 @@ if TRAINING_TYPE == "Decentralized":
         f"{NUM_CLIENTS}_{NUM_ROUNDS}_{AGGREGATION}_{PERCENTAGE}_{DATASET}_{str(SAVE)}.csv"
     )
 else:
-    DATASET = "nabiot"
+    DATASET = "nbaiot"
     filename = (
         f"result_"
         f"{EPOCHS}_{BATCH_SIZE}_{str(LEARNING_RATE).replace('.', '')}_"
@@ -134,7 +134,7 @@ else:
         f"{str(CLASSIFIER_WEIGHT_DECAY).replace('.', '')}_{CLASSIFIER_OPTIMIZER}_"
         f"{clean_filename_component(CLASSIFIER_CRITERION)}_.csv"
     )
-if DATASET == "nabiot":
+if DATASET == "nbaiot":
     PARTITIONED_DATA_DIRECTORY = "./nonIID-50-Client_Data/"
 elif DATASET == "radar":
     PARTITIONED_DATA_DIRECTORY = './radar/partitioned_data/'
@@ -510,7 +510,7 @@ if DATASET == "radar" or DATASET == "iot23":
         for i in range(NUM_CLIENTS):
             evaluate_model(final_model, clients_data[i][2], clients_data[i][3], SAVE)
 
-elif DATASET == "nabiot" and TRAINING_TYPE == "Decentralized":
+elif DATASET == "nbaiot" and TRAINING_TYPE == "Decentralized":
     round = 0
     global_client = None
     client_folders = [f"Client-{i}" for i in range(1, NUM_CLIENTS+1)]
