@@ -48,7 +48,7 @@ class FedDynStrategy(FedAvg):
         self.global_feature_learning_model = feddyn(client_models, client_data_sizes, self.global_feature_learning_model, self.beta)
         new_nds = get_weights(self.global_feature_learning_model)
         new_params = ndarrays_to_parameters(new_nds)
-        train_loader, X_test, y_test = load_data_from_disk('/home/ubuntu/Client-5/data.csv', self.context.run_config["server-batch-size"], True, True)
+        train_loader, X_test, y_test = load_data_from_disk('/home/ubuntu/test.csv', self.context.run_config["server-batch-size"], True, True)
         final_model = FEDMALDETECT(input_dim=115, hidden_dim=128, output_dim=2, global_feature_learning_model=self.global_feature_learning_model, classifier=self.classifier)
         self.classifier = server_finetuning(final_model, train_loader, X_test, y_test)
         buf = io.BytesIO()
