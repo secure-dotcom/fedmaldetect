@@ -21,6 +21,7 @@ cd fedmaldetect
 
 - Copy the paths of all datasets and insert them into lines 138, 140, and 142, respectively in semisupervised.py, according to their corresponding dataset names.
 
+### Codebase to baseline model is available at [FedMSE](https://github.com/dino-chiio/fedmse)
 ### To run local simulation for centralized and decentralized comparison with nbaiot dataset (Results of Table 5 in the paper):
 ```bash
     python semisupervised.py --dataset=nbaiot --num-clients=10 --training_type=Decentralized
